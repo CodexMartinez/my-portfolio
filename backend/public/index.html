@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Martin's Portfolio API</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d0a1a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 750px;
+      background: #12102a;
+      border: 1px solid #1e2040;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    header {
+      text-align: center;
+      padding: 2.5rem 2rem 2rem;
+      background: linear-gradient(135deg, #1a1535, #12102a);
+      border-bottom: 1px solid rgba(212,175,106,0.2);
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #d4af6a;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    header p {
+      color: #8892a4;
+      font-size: 0.82rem;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(74,222,128,0.08);
+      color: #4ade80;
+      border: 1px solid rgba(74,222,128,0.25);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .dot {
+      width: 7px; height: 7px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0.3; }
+    }
+
+    .section {
+      padding: 1.5rem 2rem;
+    }
+
+    .section h2 {
+      font-size: 0.72rem;
+      color: #d4af6a;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #1e2040;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    table th {
+      background: #1a1535;
+      color: #d4af6a;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-bottom: 1px solid rgba(212,175,106,0.15);
+    }
+
+    table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid #1e2040;
+      font-size: 0.82rem;
+      color: #8892a4;
+      vertical-align: middle;
+    }
+
+    table tr:last-child td { border-bottom: none; }
+
+    table tbody tr:hover td {
+      background: rgba(212,175,106,0.04);
+      color: #e2e8f0;
+    }
+
+    .method {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.22rem 0.65rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .get  {
+      background: rgba(74,222,128,0.1);
+      color: #4ade80;
+      border: 1px solid rgba(74,222,128,0.3);
+    }
+
+    .post {
+      background: rgba(96,165,250,0.1);
+      color: #60a5fa;
+      border: 1px solid rgba(96,165,250,0.3);
+    }
+
+    .route-link {
+      color: #22d3ee;
+      font-family: monospace;
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .route-link:hover { color: #d4af6a; }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem 2rem;
+      border-top: 1px solid #1e2040;
+      font-size: 0.74rem;
+      color: #4a5568;
+    }
+
+    footer span { color: #d4af6a; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <header>
+      <h1>⚡ Martin's Portfolio API</h1>
+      <p>Built with Node.js & Express · Hosted on Render</p>
+      <div class="status">
+        <span class="dot"></span> Server is Running
+      </div>
+    </header>
+
+    <div class="section">
+      <h2>📡 Available API Routes</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Route</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="method get">GET</span></td>
+            <td><a class="route-link" href="/">/</a></td>
+            <td>API Home Page</td>
+          </tr>
+          <tr>
+            <td><span class="method get">GET</span></td>
+            <td>
+              <a class="route-link" href="/api/profile">
+                /api/profile
+              </a>
+            </td>
+            <td>Get Martin's profile</td>
+          </tr>
+          <tr>
+            <td><span class="method get">GET</span></td>
+            <td>
+              <a class="route-link" href="/api/projects">
+                /api/projects
+              </a>
+            </td>
+            <td>Get all projects</td>
+          </tr>
+          <tr>
+            <td><span class="method get">GET</span></td>
+            <td>
+              <a class="route-link" href="/api/projects/1">
+                /api/projects/:id
+              </a>
+            </td>
+            <td>Get single project by ID</td>
+          </tr>
+          <tr>
+            <td><span class="method post">POST</span></td>
+            <td>/api/contact</td>
+            <td>Send a contact message</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <span>Martin Erasto Mchungwa</span> · Data Scientist · 
+      EASTC University · Dar es Salaam, Tanzania
+    </footer>
+
+  </div>
+
+</body>
+</html>
