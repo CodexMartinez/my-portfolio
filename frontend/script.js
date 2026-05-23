@@ -1,4 +1,4 @@
-https://my-portfolio-xid6.onrender.com/
+const API_BASE = "https://my-portfolio-xid6.onrender.com";
 // ============================================================
 // LOAD PROFILE
 // ============================================================
